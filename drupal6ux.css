@@ -1,0 +1,198 @@
+/*  Name: Drupal 6 admin styles
+    Version: 0.3
+    Author: Linus Bohman
+
+    When developing a custom theme one often forgets about admin-only areas. This
+    stylesheet aims to improve usability of those sections. More specifically:
+      - The create content page
+      - Content creation forms
+      - Block pages
+      - Messages
+      
+    This stylesheet is originally developed for sites created by Good Old. We always use 
+    Hugo Wetterbergs excellent Node Form Columns module to clean up content creation forms,
+    so this stylesheet is optimized to be used with that module. Since many starter themes
+    apply their own styles to these areas, conflict might show. I do my best to write as 
+    little and generic CSS as possible.
+    
+    Node Form Columns (github): http://github.com/hugowetterberg/nodeformcols/tree/master
+    Node Form Columns (drupal.org): http://drupal.org/project/nodeformcols
+    Good Old: http://goodold.se
+*/
+
+/*  BLOCK PAGE -----------------
+    Goals:
+      - Make it easier to see which block region
+        goes where */
+.block-region {
+  font-weight: bold;
+  font-size: 2em;
+  background-color: #efef1c;    /** TODO: Colours should be more */
+  border: 1px dashed #d3d31b;   /*  pleasing. These are ug-lay. **/
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -khtml-border-radius: 3px;
+  line-height: 1.2em;
+}
+
+
+/*  CONTENT CREATION FORMS ----------------- 
+    Goals:
+      - Minimize page clutter
+      - Easier distinction of elements */
+/* NOTE: Following works best with node form cols. Support without to come. */
+
+.node-form .form-text,
+.node-form .number,
+.node-form .text {
+  width: 98%;
+}
+
+.description {
+  color: #888;
+  font-size: 0.85em;
+  line-height: 1.4em;
+}
+
+#edit-title-wrapper input {
+  font-weight: bold;
+  font-size: 2em;
+}
+
+.form-item {
+  margin-top: 0;
+}
+
+/* Write form */
+form#node-form div.node-form > div > div,
+form#node-form div.node-form > div > fieldset {
+  margin: 1em 0 !important;
+  border: #DDD solid 5px;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -khtml-border-radius: 3px;
+  background-color: #efefef;
+  padding: 10px;
+}
+form#node-form div.node-form > div > input {
+  margin: 1em 0 !important;
+}
+form#node-form div.node-form > div > fieldset.collapsed {
+  padding: 0 0 0 10px;
+}
+form#node-form div.node-form > div > fieldset legend {
+  margin-left: -10px;
+}
+
+form#node-form div.node-form > div > fieldset legend,
+form#node-form div.node-form > div > div label {
+  font-weight: bold;
+  font-size: 1.2em;
+  line-height: 1.4em;
+}
+
+/* NFC:s form region right */
+form#node-form div.node-form > div.form-region-right > div,
+form#node-form div.node-form > div.form-region-right > fieldset {
+  padding: 5px;
+  border-width: 1px;
+  margin: 1em 0 1em 10px !important;
+}
+form#node-form div.node-form > div.form-region-right > fieldset.collapsed {
+  padding: 0 0 0 5px;
+}
+form#node-form div.node-form > div.form-region-right > fieldset legend {
+  margin-left: -5px;
+}
+form#node-form div.node-form > div.form-region-right > fieldset legend,
+form#node-form div.node-form > div.form-region-right > div label {
+  font-weight: bold;
+  font-size: 1em;
+  line-height: 1.2em;
+}
+
+/* Attachement exception. Shouldn't be placed in right sidebar since it's too large. */
+form#node-form div.node-form > div > div.attachments {
+  border: 0 none;
+  background: none transparent;
+  padding: 0;
+}
+form#node-form div.node-form > div > div.attachments fieldset {
+  margin: 1em 0 !important;
+  border: #DDD solid 5px;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -khtml-border-radius: 3px;
+  background-color: #efefef;
+  padding: 10px;
+}
+form#node-form div.node-form > div > div.attachments > fieldset.collapsed {
+  padding: 0 0 0 10px;
+}
+form#node-form div.node-form > div > div.attachments > fieldset legend {
+  margin-left: -10px;
+}
+form#node-form div.node-form > div > div.attachments > fieldset legend,
+form#node-form div.node-form > div > div.attachments > div label {
+  font-weight: bold;
+  font-size: 1.2em;
+  line-height: 1.4em;
+}
+
+
+/*  CONTENT CREATION SITE -----------------
+    Goals:
+      - Increase readability
+      - Make it easier to find content types
+      - Let the user know what he is clicking on */
+body.page-node-add dt {
+  font-size: 1.2em;
+  font-weight: bold;
+  line-height: 1.5em;
+  margin: 0 20px;
+  padding: 0;
+}
+body.page-node-add dt a {
+  text-decoration: none;
+  border-left: 18px solid;
+  padding: 0 0 0 15px;
+}
+body.page-node-add dt a:hover {
+  text-decoration: underline;
+  border-left: 18px double;       /* Todo: the border-left switch is a good visual cue for the user - but boring. */
+}
+body.page-node-add dd {
+  color: #888;
+  font-size: 1.1em;
+  margin: 0 53px 1.5em;
+  padding: 0;
+  max-width: 430px;
+  line-height: 1.3em;
+}
+
+
+/*  Messages -----------------
+    Goals:
+      - Increase visibility
+      - Make them easier on the eyes */
+div.messages,
+div.warning {
+  margin: 0 0 20px 0;
+  font-size: 1.2em;
+  font-weight: bold;
+  line-height: 1.5em;
+  padding: 20px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  background-image: none !important;
+}
+div.warning,
+div.status {
+  color: #E09010;
+  border: 2px solid #E09010;
+}
