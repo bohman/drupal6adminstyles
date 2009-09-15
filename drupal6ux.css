@@ -1,5 +1,5 @@
 /*  Name: Drupal 6 admin styles
-    Version: 0.3
+    Version: 0.35
     Author: Linus Bohman
 
     When developing a custom theme one often forgets about admin-only areas. This
@@ -66,23 +66,26 @@
 
 /* Write form */
 form#node-form div.node-form > div > div,
-form#node-form div.node-form > div > fieldset {
+form#node-form div.node-form > div > fieldset,
+form#node-form div.node-form > div > div.attachments fieldset {
   margin: 1em 0 !important;
   border: #DDD solid 5px;
   border-radius: 3px;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   -khtml-border-radius: 3px;
-  background-color: #efefef;
+  background-color: #F0F2F4;
   padding: 10px;
 }
 form#node-form div.node-form > div > input {
   margin: 1em 0 !important;
 }
-form#node-form div.node-form > div > fieldset.collapsed {
+form#node-form div.node-form > div > fieldset.collapsed,
+form#node-form div.node-form > div > div.attachments > fieldset.collapsed {
   padding: 0 0 0 10px;
 }
-form#node-form div.node-form > div > fieldset legend {
+form#node-form div.node-form > div > fieldset legend,
+form#node-form div.node-form > div > div.attachments > fieldset legend {
   margin-left: -10px;
 }
 
@@ -107,7 +110,9 @@ form#node-form div.node-form > div.form-region-right > fieldset legend {
   margin-left: -5px;
 }
 form#node-form div.node-form > div.form-region-right > fieldset legend,
-form#node-form div.node-form > div.form-region-right > div label {
+form#node-form div.node-form > div.form-region-right > div label,
+form#node-form div.node-form > div > div.attachments > fieldset legend,
+form#node-form div.node-form > div > div.attachments > div label {
   font-weight: bold;
   font-size: 1em;
   line-height: 1.2em;
@@ -119,31 +124,9 @@ form#node-form div.node-form > div > div.attachments {
   background: none transparent;
   padding: 0;
 }
-form#node-form div.node-form > div > div.attachments fieldset {
-  margin: 1em 0 !important;
-  border: #DDD solid 5px;
-  border-radius: 3px;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  -khtml-border-radius: 3px;
-  background-color: #efefef;
-  padding: 10px;
-}
-form#node-form div.node-form > div > div.attachments > fieldset.collapsed {
-  padding: 0 0 0 10px;
-}
-form#node-form div.node-form > div > div.attachments > fieldset legend {
-  margin-left: -10px;
-}
-form#node-form div.node-form > div > div.attachments > fieldset legend,
-form#node-form div.node-form > div > div.attachments > div label {
-  font-weight: bold;
-  font-size: 1.2em;
-  line-height: 1.4em;
-}
 
 
-/*  CONTENT CREATION SITE -----------------
+/*  CONTENT CREATION PAGE -----------------
     Goals:
       - Increase readability
       - Make it easier to find content types
@@ -195,4 +178,42 @@ div.warning,
 div.status {
   color: #E09010;
   border: 2px solid #E09010;
+}
+
+
+/*  USER PAGES -----------------
+    Goals:
+      - Minimize page clutter
+      - Easier distinction of elements */
+/* Based on content creation pages for now */
+
+#edit-name-wrapper input {
+  font-weight: bold;
+  font-size: 2em;
+  width: 98%;
+}
+
+form#user-profile-form > div > fieldset,
+form#user-pass > div > div,
+form#user-login > div > div,
+form#user-register > div > fieldset {
+  margin: 1em 0 !important;
+  border: #DDD solid 5px;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -khtml-border-radius: 3px;
+  background-color: #F0F2F4;
+  padding: 10px;
+}
+
+form#user-profile-form > div > fieldset legend,
+form#user-register > div > fieldset legend {
+  font-weight: bold;
+  font-size: 1.2em;
+  line-height: 1.4em;
+}
+
+form#user-profile-form > div > fieldset.collapsed {
+  padding: 0 0 0 10px;
 }
