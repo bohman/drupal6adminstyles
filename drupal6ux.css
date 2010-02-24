@@ -1,5 +1,5 @@
 /*  Name: Drupal 6 admin styles
-    Version: 0.35
+    Version: 0.40
     Author: Linus Bohman
 
     When developing a custom theme one often forgets about admin-only areas. This
@@ -27,13 +27,15 @@
 .block-region {
   font-weight: bold;
   font-size: 2em;
-  background-color: #efef1c;    /** TODO: Colours should be more */
-  border: 1px dashed #d3d31b;   /*  pleasing. These are ug-lay. **/
-  border-radius: 3px;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  -khtml-border-radius: 3px;
+  background-color: #EEE;
+  border: 5px dashed #CCC;
+  color: #777;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -khtml-border-radius: 10px;
   line-height: 1.2em;
+  padding: 10px;
 }
 
 
@@ -160,24 +162,57 @@ body.page-node-add dd {
 /*  Messages -----------------
     Goals:
       - Increase visibility
-      - Make them easier on the eyes */
-div.messages,
-div.warning {
-  margin: 0 0 20px 0;
+      - Make them easier on the eyes 
+      
+      Possible todo: Data encoded icons? */
+div.messages, div.status, div.warning, div.error {
+  margin: 30px 0;
   font-size: 1.2em;
   font-weight: bold;
+  font-style: normal;
   line-height: 1.5em;
   padding: 20px;
+  background-image: none !important;
+  background-color: #222;
+  border-width: 0 20px 0 0;
+  border-color: #219A24;
+  opacity: 0.85;
+  filter: alpha(opacity=85);
+  color: #EEE;
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   -khtml-border-radius: 5px;
-  background-image: none !important;
 }
-div.warning,
-div.status {
+div.messages ul li {
+  margin-top: 1em;
+}
+div.messages ul li:first-child {
+  margin-top: 0;
+}
+div.messages a {
+  text-decoration: none;
+}
+
+div.error {
+  background-color: #300;
+  border-color: #C22;
+}
+div.error a {
+  color: #C22;
+}
+div.error a:hover {
+  color: #9A1818;
+}
+
+div.warning {
+  border-color: #E09010;
+}
+div.warning a {
   color: #E09010;
-  border: 2px solid #E09010;
+}
+div.warning a:hover {
+  color: #A86A0A;
 }
 
 
