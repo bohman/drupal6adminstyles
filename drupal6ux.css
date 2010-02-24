@@ -1,24 +1,29 @@
 /*  Name: Drupal 6 admin styles
-    Version: 0.40
+    Version: 0.41
     Author: Linus Bohman
+    URL: http://github.com/Bohman/drupal6adminstyles
 
     When developing a custom theme one often forgets about admin-only areas. This
     stylesheet aims to improve usability of those sections. More specifically:
       - The create content page
       - Content creation forms
-      - Block pages
+      - Block page
       - Messages
       
     This stylesheet is originally developed for sites created by Good Old. We always use 
-    Hugo Wetterbergs excellent Node Form Columns module to clean up content creation forms,
-    so this stylesheet is optimized to be used with that module. Since many starter themes
-    apply their own styles to these areas, conflict might show. I do my best to write as 
-    little and generic CSS as possible.
+    Hugo Wetterberg's excellent Node Form Columns module to clean up content creation forms,
+    so this stylesheet is optimized to be used with that module.
     
-    Node Form Columns (github): http://github.com/hugowetterberg/nodeformcols/tree/master
+    Since many starter themes apply their own styles to these areas, conflict might show. Zen
+    seems to be okay, but you might have to troubleshoot others yourself. I do my best to
+    write as little and generic CSS as possible (progressive enhancement-style - boo-ya).
+    
+    Node Form Columns (GitHub): http://github.com/hugowetterberg/nodeformcols/tree/master
     Node Form Columns (drupal.org): http://drupal.org/project/nodeformcols
     Good Old: http://goodold.se
+    Me: http://linusbohman.se
 */
+
 
 /*  BLOCK PAGE -----------------
     Goals:
@@ -36,6 +41,92 @@
   -khtml-border-radius: 10px;
   line-height: 1.2em;
   padding: 10px;
+}
+
+
+/*  CONTENT CREATION PAGE -----------------
+    Goals:
+      - Increase readability
+      - Make it easier to find content types
+      - Let the user know what he is clicking on */
+body.page-node-add dt {
+  font-size: 1.2em;
+  font-weight: bold;
+  line-height: 1.5em;
+  margin: 0 20px;
+  padding: 0;
+}
+body.page-node-add dt a {
+  text-decoration: none;
+  border-left: 18px solid;
+  padding: 0 0 0 15px;
+}
+body.page-node-add dt a:hover {
+  text-decoration: underline;
+  border-left: 18px double;       /* Todo: the border-left switch is a good visual cue for the user - but boring. Make/find some nice icons and data encode them. */
+}
+body.page-node-add dd {
+  color: #888;
+  font-size: 1.1em;
+  margin: 0 53px 1.5em;
+  padding: 0;
+  max-width: 430px;
+  line-height: 1.3em;
+}
+
+
+/*  Messages -----------------
+    Goals:
+      - Increase visibility
+      - Make them easier on the eyes */
+div.messages, div.status, div.warning, div.error {
+  margin: 30px 0;
+  font-size: 1.2em;
+  font-weight: bold;
+  font-style: normal;
+  line-height: 1.5em;
+  padding: 20px;
+  background-image: none !important;
+  background-color: #222;
+  border-width: 0 20px 0 0;
+  border-color: #219A24;
+  opacity: 0.85;
+  filter: alpha(opacity=85);
+  color: #EEE;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -khtml-border-radius: 5px;
+}
+div.messages ul li {
+  margin-top: 1em;
+}
+div.messages ul li:first-child {
+  margin-top: 0;
+}
+div.messages a {
+  text-decoration: none;
+}
+
+div.error {
+  background-color: #300;
+  border-color: #C22;
+}
+div.error a {
+  color: #C22;
+}
+div.error a:hover {
+  color: #9A1818;
+}
+
+div.warning {
+  border-color: #E09010;
+}
+div.warning a {
+  color: #E09010;
+}
+div.warning a:hover {
+  color: #A86A0A;
 }
 
 
@@ -120,7 +211,7 @@ form#node-form div.node-form > div > div.attachments > div label {
   line-height: 1.2em;
 }
 
-/* Attachement exception. Shouldn't be placed in right sidebar since it's too large. */
+/* Attachment exception. Shouldn't be placed in right sidebar since it's too large. */
 form#node-form div.node-form > div > div.attachments {
   border: 0 none;
   background: none transparent;
@@ -128,99 +219,11 @@ form#node-form div.node-form > div > div.attachments {
 }
 
 
-/*  CONTENT CREATION PAGE -----------------
-    Goals:
-      - Increase readability
-      - Make it easier to find content types
-      - Let the user know what he is clicking on */
-body.page-node-add dt {
-  font-size: 1.2em;
-  font-weight: bold;
-  line-height: 1.5em;
-  margin: 0 20px;
-  padding: 0;
-}
-body.page-node-add dt a {
-  text-decoration: none;
-  border-left: 18px solid;
-  padding: 0 0 0 15px;
-}
-body.page-node-add dt a:hover {
-  text-decoration: underline;
-  border-left: 18px double;       /* Todo: the border-left switch is a good visual cue for the user - but boring. */
-}
-body.page-node-add dd {
-  color: #888;
-  font-size: 1.1em;
-  margin: 0 53px 1.5em;
-  padding: 0;
-  max-width: 430px;
-  line-height: 1.3em;
-}
-
-
-/*  Messages -----------------
-    Goals:
-      - Increase visibility
-      - Make them easier on the eyes 
-      
-      Possible todo: Data encoded icons? */
-div.messages, div.status, div.warning, div.error {
-  margin: 30px 0;
-  font-size: 1.2em;
-  font-weight: bold;
-  font-style: normal;
-  line-height: 1.5em;
-  padding: 20px;
-  background-image: none !important;
-  background-color: #222;
-  border-width: 0 20px 0 0;
-  border-color: #219A24;
-  opacity: 0.85;
-  filter: alpha(opacity=85);
-  color: #EEE;
-  border-radius: 5px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -khtml-border-radius: 5px;
-}
-div.messages ul li {
-  margin-top: 1em;
-}
-div.messages ul li:first-child {
-  margin-top: 0;
-}
-div.messages a {
-  text-decoration: none;
-}
-
-div.error {
-  background-color: #300;
-  border-color: #C22;
-}
-div.error a {
-  color: #C22;
-}
-div.error a:hover {
-  color: #9A1818;
-}
-
-div.warning {
-  border-color: #E09010;
-}
-div.warning a {
-  color: #E09010;
-}
-div.warning a:hover {
-  color: #A86A0A;
-}
-
-
 /*  USER PAGES -----------------
     Goals:
       - Minimize page clutter
       - Easier distinction of elements */
-/* Based on content creation pages for now */
+/* Is a quick, untested hack based on content creation page right now. */
 
 #edit-name-wrapper input {
   font-weight: bold;
